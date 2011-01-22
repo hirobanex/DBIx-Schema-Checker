@@ -46,7 +46,7 @@ sub diff_schema{
     $self->_diff_tables;
     
     my $diff = {};
-    for my $table(keys %{$self->{staging}->{_tables}}){
+    for my $table(@{$self->{staging}->{_tables}}){
 
         my $create_table = {};
     
@@ -56,8 +56,12 @@ sub diff_schema{
         }
         
         $diff->{$table} = diff(
-            \($create_table->{staging}->{'Create Table'}),\($create_table->{production}->{'Create Table'}),
-            FILENAME_A => "staging $table"               , FILENAME_B => "production $table"
+            \($create_table->{staging}->{'Create Table'}),
+            \($create_table->{production}->{'Create Table'}),
+            {
+                FILENAME_A => "staging $table",
+                FILENAME_B => "production $table",
+            }
         );
         
         if($diff->{$table}){
@@ -89,6 +93,6 @@ sub _set_tables{
     my ($self) = @_;
 
     for my $database('staging','production'){
-        $self->{$database}->{_tables} = [sort map {$_->[0]} @{$self->{dbh}->{$database}->selectall_arrayref('show tables')}];
+        $self->{$database}->{_tables} = [sort map {$_->[0]} @{$self->{$database}->{dbh}->selectall_arrayref('show tables')}];
     }
 }

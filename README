@@ -5,7 +5,7 @@ This perl Module check difference of the schema,
 Prodution Server's MySQL Schema and 
 Staging Server's MySQL Schema(Your Test Server or MySQL Schema that you are modifying).
 
-2.TODO
-test program add.
+2.TO DO
+test program add.Test::mysqldによるテストの追加
 Check DBIx::Skinny's YourAPP::Model::DB::Schema.pm add.
 
