@@ -1,0 +1,11 @@
+This is alpha version.
+
+1.Requirement
+This perl Module check difference of the schema,
+Prodution Server's MySQL Schema and 
+Staging Server's MySQL Schema(Your Test Server or MySQL Schema that you are modifying).
+
+2.TODO
+test program add.
+Check DBIx::Skinny's YourAPP::Model::DB::Schema.pm add.
+
