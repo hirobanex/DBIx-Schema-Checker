@@ -17,10 +17,6 @@ sub schema_check{
     $self->diff_skinny;
 }
 
-#どうせSkinny、Mysqlだけだし、ネーミングがね
-#rowのありなしもチェックしようかな
-#productionが複数あってもいい気がする
-
 sub new{
     my $class = shift;
    
